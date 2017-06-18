@@ -1,9 +1,5 @@
-import sys
-import os
 from selenium import webdriver
 from bs4 import BeautifulSoup as bs
-import re
-import psycopg2
 import time
 
 #function to check the current status of the class
@@ -15,7 +11,7 @@ def check_status(course, term):
 
     driver.set_window_size(1024, 768)
     driver.get(url)
-    #time.sleep(0.5)
+    time.sleep(0.5)
 
     #Selecting All class option
     x = driver.find_element_by_id('searchTypeAllClass')
@@ -32,14 +28,26 @@ def check_status(course, term):
     #print source
     print "Current Status:"
     status = []
-    instructor = soup.find("td", {"class": "instructorListColumnValue"}).text
-    #inst = str(instructor).strip('\t\n')
-    status.append(str(instructor).strip('\t\n'))
-    course = soup.find("td", {"class": "titleColumnValue"}).text
-    status.append(str(course).strip('\t\n'))
-    seats = soup.find("td", { "class":"availableSeatsColumnValue" }).text
-    s = str(seats).strip('\t\n')
-    status.append(str(s.strip('\n').split('of')[0]).strip('\n'))
+
+    instructor = soup.find("td", {"class": "instructorListColumnValue"})
+    #status.append(str(instructor).strip('\t\n'))
+    if instructor is not None:
+        instructor = instructor.text
+        status.append(str(instructor).strip('\t\n'))
+
+    course = soup.find("td", {"class": "titleColumnValue"})
+    #status.append(str(course).strip('\t\n'))
+    if course is not None:
+        course = course.text
+        status.append(str(course).strip('\t\n'))
+
+    seats = soup.find("td", { "class":"availableSeatsColumnValue" })
+    #s = str(seats).strip('\t\n')
+    #status.append(str(s.strip('\n').split('of')[0]).strip('\n'))
+    if seats is not None:
+        seats = seats.text
+        s = str(seats).strip('\t\n')
+        status.append(str(s.strip('\n').split('of')[0]).strip('\n'))
 
     print status
 
