@@ -36,7 +36,7 @@ def class_availability():
         classes = classes[1:]
 
         #Driver INIT
-        url_page = "https://webapp4.asu.edu/catalog/classlist?k=80181&t=2177&e=all&hon=F"
+        url_page = "https://webapp4.asu.edu/catalog/classlist?k=91334&t=2177&e=all&hon=F"
         driver = webdriver.PhantomJS(service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
 
         #Mobile workaround
@@ -55,7 +55,7 @@ def class_availability():
 
         #Loop through sysarg avail class list
         for your_classes in classes:
-            url_page = "https://webapp4.asu.edu/catalog/classlist?k=80181&t=2177&e=all&hon=F"
+            url_page = "https://webapp4.asu.edu/catalog/classlist?k=91334&t=2177&e=all&hon=F"
             driver.get(url_page)
 
             driver.save_screenshot('test_google.png')

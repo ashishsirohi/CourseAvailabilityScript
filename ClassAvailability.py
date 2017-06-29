@@ -26,7 +26,7 @@ def check_status(course, term):
     soup = bs(source, "lxml")
 
     #print source
-    print "Current Status:"
+    #print "Current Status:"
     status = []
 
     instructor = soup.find("td", {"class": "instructorListColumnValue"})
@@ -49,7 +49,7 @@ def check_status(course, term):
         s = str(seats).strip('\t\n')
         status.append(str(s.strip('\n').split('of')[0]).strip('\n'))
 
-    print status
+    #print status
 
     return status
 
