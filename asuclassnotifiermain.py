@@ -34,7 +34,8 @@ def exec_threads(course, term):
         cur.execute("select users from asuca_courses where courseid=" + str(course))
         users = cur.fetchall()
         for x in users[0][0]:
-            cur.execute("select emailid from asuca_userinfo where id=" + str(x))
+            query = "select emailid from asuca_userinfo where username = '"+(str(x))+"'"
+            cur.execute(query)
             email = cur.fetchall()
             emails.append(email[0][0])
         send_notification(emails, status, term, name2, course)
