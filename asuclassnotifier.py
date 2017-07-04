@@ -37,7 +37,7 @@ def class_availability():
 
         #Driver INIT
         url_page = "https://webapp4.asu.edu/catalog/classlist?k=91334&t=2177&e=all&hon=F"
-        driver = webdriver.PhantomJS(service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
+        driver = webdriver.PhantomJS(service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any', '--load-images=no'])
 
         #Mobile workaround
         driver.set_window_size(1400,1000)

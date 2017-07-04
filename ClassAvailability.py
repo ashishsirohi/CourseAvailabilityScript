@@ -7,7 +7,7 @@ def check_status(course, term):
     # driver inititalizaiton
     print "Checking status for %s..." %course
     url = "https://webapp4.asu.edu/catalog/classlist?k=%s&t=%s&e=all&hon=F" % (course, term)
-    driver = webdriver.PhantomJS(service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any'])
+    driver = webdriver.PhantomJS(service_args=['--ignore-ssl-errors=true', '--ssl-protocol=any', '--load-images=no'])
 
     driver.set_window_size(1024, 768)
     driver.get(url)
