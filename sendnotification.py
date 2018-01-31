@@ -4,8 +4,8 @@ from email.mime.multipart import MIMEMultipart
 import os
 
 COMMASPACE = ', '
-gmail_user = "***REMOVED***"
-gmail_pwd = "***REMOVED***"
+gmail_user = "email_id"
+gmail_pwd = "password"
 
 def send_notification(emaillist, status, term, course_name, course_id):
     print "Sending notification!!"
